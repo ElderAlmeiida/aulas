@@ -34,6 +34,12 @@ end
 # na linguagem para escolher a melhor abordagem para cada situação. 
 
 for i in 1..100
-  puts "Número: #{i}"
+  puts "Número: #{i}" 
 end
 # O loop for também pode ser usado com ranges, como no exemplo acima.
+
+x = 1 
+while x < 100000
+  puts "Número: #{x}"
+  x += 1
+end
