@@ -139,15 +139,84 @@ second_user = User.new
 second_user.add('Jose')
 
 
-# Variavel de instancia -- é declardo com a palavra reservada #
+# Variavel de variavel local -- é declardo com a palavra reservada @ #
+
 class User 
+  @@user_count = 0
   def add(name)
     @name = name 
     puts "User #{@name} adicionado com sucesso"
+    @@user_count += 1
+    puts @@user_count
     hello
-  end
+   end
   def hello
     puts "Hello #{@name}"
   end
 
 end
+
+Frist_user = User.new
+Frist_user.add('Elder')
+Second_user = User.new
+Second_user.add('Jose')
+third_user = User.new
+third_user.add('Maria')
+
+
+# Variavel de classe de instacia -- é declardo com a palavra reservada @ #
+class User 
+  def add(name)# name é um parametro
+    @name = name 
+    puts "Usuario Adicionado com sucesso"
+    hello
+  end
+  def hello 
+    puts "Seja bem vindo! #{@name}."
+  end
+end
+user = User.new
+user.add('Elder')
+
+#ATRIBUTOS DE CLASSE SÃO VARIAVEIS DE CLASSE E SAO SEMPRE PRIVADAS 
+#Eles so podem ser acessados por metodos de um objeto
+
+#Atributos
+class Dog
+  def name 
+    @name
+  end
+  def name= name
+    @name = name
+  end
+end 
+dog = Dog.new
+dog.name = 'Marley'
+puts dog.name
+
+class Dog
+  attr_accessor :name, :age
+end
+
+#O método attr_acessor cria os métodos de leitura e escrita para os atributos especificados.
+#O método attr_acessor é uma forma mais concisa de definir os métodos de leitura e escrita para os atributos de uma classe.
+dog = Dog.new
+dog.name = 'Marley'
+puts dog.name
+dog.age = '2 anos'
+puts dog.age
+
+#CONSTRUTORES 
+
+class Person 
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+  def check
+    puts" Instacia de classe iniciada"
+    puts "Nome: #{@name}, Idade: #{@age}"
+  end
+end
+person = Person.new('Elder', 27)
+person.check
